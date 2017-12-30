@@ -1,7 +1,6 @@
 (ns my-solitaire.core-test
   (:require [clojure.test :refer :all]
-            [my-solitaire.core :refer :all]))
+            [my-solitaire.core :refer :all]
+            [my-solitaire.card :as card]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+
