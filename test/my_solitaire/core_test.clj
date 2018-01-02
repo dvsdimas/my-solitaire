@@ -17,8 +17,8 @@
                                 (card/make :hearts :5)
                                 (card/make :spades :6))}]}
 
-        move (transfer-fn 3 [:tableau 0 :up] [:tableau 1 :up])]
-    (is (= game2 (move game)))))
+        move [:move/transfer 3 [:tableau 0] [:tableau 1]]]
+    (is (= game2 (apply-move game move)))))
 
 (deftest tableau0-foundation0
   (let [game {:foundations [{:up (list
@@ -36,9 +36,9 @@
                                 (card/make :clubs :4)
                                 (card/make :hearts :5))}]}
 
-        move (transfer-fn 1 [:tableau 0 :up] [:foundations 0 :up])]
+        move [:move/transfer 1 [:tableau 0] [:foundations 0]]]
 
-    (is (= game2 (move game)))))
+    (is (= game2 (apply-move game move)))))
 
 (deftest stock-down-stock-up
   (let [game {:stock [{:down (list
@@ -58,9 +58,9 @@
                               (card/make :diamonds :2)
                               (card/make :diamonds :A))}]}
 
-        move (flip-fn 3 [:stock 0 :down] [:stock 0 :up])]
+        move [:move/flip 3 [:stock 0]]]
 
-    (is (= game2 (move game)))))
+    (is (= game2 (apply-move game move)))))
 
 (deftest tableau-down-tableau-up
   (let [game {:tableau [{:down (list
@@ -76,9 +76,9 @@
                           :up (list
                                 (card/make :spades :A))}]}
 
-        move (flip-fn 1 [:tableau 0 :down] [:tableau 0 :up])]
+        move [:move/flip 1 [:tableau 0]]]
 
-    (is (= game2 (move game)))))
+    (is (= game2 (apply-move game move)))))
 
 
 
