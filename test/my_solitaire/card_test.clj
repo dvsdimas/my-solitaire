@@ -4,6 +4,12 @@
 
 (deftest card-test
 
+  (testing "new dec"
+    (let [deck card/deck]
+      (is (= 52 (count deck)))
+      (is (= 52 (count (set deck))))
+      (is (not= deck (shuffle card/deck)))))
+
   (testing "card/make"
     (is (= (card/make :diamonds :A) [:diamonds :A]))
     (is (= (card/make :clubs :9) [:clubs :9]))

@@ -20,9 +20,9 @@
   (assert (contains? suits suit))
   (case suit
     :diamonds :red
-    :hearts   :red
-    :clubs    :black
-    :spades   :black))
+    :hearts :red
+    :clubs :black
+    :spades :black))
 
 (defn color [card]
   (suit-color (suit card)))
@@ -42,3 +42,8 @@
     :J 11
     :Q 12
     :K 13))
+
+(def deck
+  (for [suit suits
+        value values]
+    (make suit value)))
