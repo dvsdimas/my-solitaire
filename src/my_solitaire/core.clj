@@ -32,10 +32,10 @@
   (let [deck (shuffle card/deck)
         game empty-game
         [game deck] (reduce (fn [[game deck] t]
-                              (let [[up   deck] (split-deck 1 deck)
+                              (let [[up deck] (split-deck 1 deck)
                                     [down deck] (split-deck t deck)]
                                 [(-> game
-                                     (assoc-in [:tableau t :up]   up)
+                                     (assoc-in [:tableau t :up] up)
                                      (assoc-in [:tableau t :down] down))
                                  deck]))
                             [game deck] (range 7))]
